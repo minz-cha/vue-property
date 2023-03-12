@@ -1,12 +1,28 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  Hello
+  <div>
+    <!-- 속성 바인딩-> ':속성="데이터이름" -->
+    <h4 class = "red" :style = "스타일">XX 원룸</h4> 
+    <p>{{ price1 }} 만원</p>
+  </div>
+  <div>
+    <h4>XX 원룸</h4>
+    <p>{{ price2 }} 만원</p>
+  </div>
 </template>
 
 <script>
 
+
 export default {
   name: 'App',
+  data(){
+    return {
+      price1 : 60,
+      price2 : 70,
+      스타일 : 'color:blue',
+    }
+  },
   components: {
   }
 }
