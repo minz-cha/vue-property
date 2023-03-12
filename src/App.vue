@@ -1,13 +1,16 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <div>
-    <!-- 속성 바인딩-> ':속성="데이터이름" -->
-    <h4 class = "red" :style = "스타일">XX 원룸</h4> 
+    <h4 :style="스타일">{{ products[0] }}</h4> 
     <p>{{ price1 }} 만원</p>
   </div>
   <div>
-    <h4>XX 원룸</h4>
+    <h4 :style="스타일">{{ products[1] }}</h4>
     <p>{{ price2 }} 만원</p>
+  </div>
+  <div>
+    <h4 :style="스타일">{{ products[2] }}</h4>
+    <p>{{ price3 }} 만원</p>
   </div>
 </template>
 
@@ -20,7 +23,9 @@ export default {
     return {
       price1 : 60,
       price2 : 70,
-      스타일 : 'color:blue',
+      price3 : 80,
+      products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
+      스타일: 'color : #00008B',
     }
   },
   components: {
