@@ -1,9 +1,10 @@
 <template>
 
-  <div class="black-bg" v-if="모달창open == true">
+  <div class="black-bg" v-if="modal == true">
     <div class="white-bg">
       <h4>상세페이지</h4>
       <p>상세페이지 내용</p>
+      <button @click="modal = false">닫기</button>
     </div>
   </div>
 
@@ -13,7 +14,7 @@
 
   <div v-for="(a,i) in 3" :key="i">
     <img :src="require('./assets/room' + i + '.jpg')" class = "room-img">
-    <h4 @click="모달창open = true">{{ products[i] }}</h4>
+    <h4 @click="modal = true">{{ products[i] }}</h4>
     <p>{{ price[i] }}만원</p>
     <button @click="increase(i)">허위매물 신고</button> <span>신고수: {{신고수[i]}} </span>
   </div>
@@ -25,7 +26,7 @@ export default {
   name: 'App',
   data(){
     return {
-      모달창open : false,
+      modal : false,
       신고수 : [0, 0, 0], 
       menu: ['Home', 'Shop', 'About'],
       products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
