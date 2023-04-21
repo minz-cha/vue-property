@@ -1,12 +1,19 @@
 <template>
 
+  <div class="black-bg" v-if="모달창open == true">
+    <div class="white-bg">
+      <h4>상세페이지</h4>
+      <p>상세페이지 내용</p>
+    </div>
+  </div>
+
   <div class = "menu">
     <a v-for="a in menu" :key="a">{{ a }}</a>
   </div>
 
   <div v-for="(a,i) in 3" :key="i">
     <img :src="require('./assets/room' + i + '.jpg')" class = "room-img">
-    <h4>{{ products[i] }}</h4>
+    <h4 @click="모달창open = true">{{ products[i] }}</h4>
     <p>{{ price[i] }}만원</p>
     <button @click="increase(i)">허위매물 신고</button> <span>신고수: {{신고수[i]}} </span>
   </div>
@@ -18,6 +25,7 @@ export default {
   name: 'App',
   data(){
     return {
+      모달창open : false,
       신고수 : [0, 0, 0], 
       menu: ['Home', 'Shop', 'About'],
       products : ['역삼동 원룸', '천호동 원룸', '마포구 원룸'],
@@ -36,6 +44,23 @@ export default {
 </script>
 
 <style>
+body {
+  margin : 0;
+}
+div {
+  box-sizing: border-box;
+}
+.black-bg {
+  width: 100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  position: fixed; padding: 20px;
+}
+.white-bg {
+  width: 100%; background: white;
+  border-radius: 8px;
+  padding: 20px;
+} 
+
 .room-img{
   width: 100%;
   margin-top:  40px;
